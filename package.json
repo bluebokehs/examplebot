@@ -1,0 +1,27 @@
+{
+  "name": "testtwitbot",
+  "version": "1.0.0",
+  "description": "this is a test for twit bot",
+  "main": "bot.js",
+  "dependencies": {
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluebokehs/examplebot.git"
+  },
+  "keywords": [
+    "twit",
+    "bot"
+  ],
+  "author": "owen kern",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluebokehs/examplebot/issues"
+  },
+  "homepage": "https://github.com/bluebokehs/examplebot#readme"
+}
