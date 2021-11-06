@@ -37,20 +37,20 @@ function retweetLatest() {
 	  }
 	})
 
-
+	// gets a list of followers of a squid game fan account
 	T.get('followers/list', { screen_name: 'nocontextsquidg'}, function(err, data, response) {
 
-
 		if (!err) {
-
+			// creates a random number between 0 and 100, this number is used for picking a 
+			// random user and also giving them a random percentage chance of winning Squid Game
 			var randomNum = Math.floor(Math.random() * 101)
-
+			//account is the screen name of the account that the bot will mention
 			var account = data.users[randomNum].screen_name;
-
+			//the tweet that the bot posts
 			var tweet = {
 				status: '@' + account + ' has a ' + randomNum + '% chance to win Squid Game.'
 			}
-
+			//actually posting the tweet
 			T.post('statuses/update', tweet, function(err, data, response) {
 				console.log(data)
 			})
