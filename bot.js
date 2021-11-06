@@ -30,30 +30,31 @@ function retweetLatest() {
 		})
 		
 		T.post('favorites/create', {id:retweetId}, function(err, data, response){console.log("just liked a post")});
-		console.log(data);
-
-		T.get('followers/ids', { screen_name: 'nocontextsquidg'}, function(err, data, response) {
-			console.log(data)
-
-			var randomNum = Math.floor(Math.random() * 101)
-
-			var account = data.statuses[randomNum].id_str;
-
-			var tweet = {
-				status: '@' + account + ' has a ' + randomNum + ' chance to win Squid Game'
-			}
-	
-			T.post('statuses/update', tweet, function(err, data, response) {
-				console.log(data)
-			})
-		})
-
-		
 	  }
 	  // However, if our original search request had an error, we want to print it out here.
 	  else {
 	  	console.log('There was an error with your hashtag search:', error);
 	  }
+	})
+
+
+	T.get('followers/list', { screen_name: 'nocontextsquidg'}, function(err, data, response) {
+
+
+		if (!err) {
+
+			var randomNum = Math.floor(Math.random() * 101)
+
+			var account = data.users[randomNum].screen_name;
+
+			var tweet = {
+				status: '@' + account + ' has a ' + randomNum + '% chance to win Squid Game.'
+			}
+
+			T.post('statuses/update', tweet, function(err, data, response) {
+				console.log(data)
+			})
+		}
 	});
 }
 
