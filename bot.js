@@ -4,7 +4,7 @@ var Twit = require('twit');
 // We need to include our configuration file
 var T = new Twit(require('./config.js'));
 
-// This is the URL of a search for the latest tweets on the '#mediaarts' hashtag.
+// This is the URL of a search for the latest tweets on the '#squidgame' hashtag.
 var squidGameSearch = {q: "#squidgame", count: 10, result_type: "recent"}; 
 
 // This function finds the latest tweet with the #mediaarts hashtag, and retweets it.
